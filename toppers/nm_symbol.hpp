@@ -75,7 +75,7 @@ namespace toppers
      */
     struct entry
     {
-      unsigned long address;
+      symbol_addr_type address;
       int type;
     };
 

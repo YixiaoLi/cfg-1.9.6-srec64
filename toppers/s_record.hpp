@@ -70,7 +70,7 @@ namespace toppers
   class s_record
   {
   public:
-    typedef std::pair< unsigned long, std::vector< unsigned char > > value_type;
+    typedef std::pair< symbol_addr_type, std::vector< unsigned char > > value_type;
     typedef std::vector< value_type >::size_type size_type;
 
     /*!
@@ -81,7 +81,7 @@ namespace toppers
     {
       int type;
       int length;
-      unsigned long address;
+      symbol_addr_type address;
       std::vector< unsigned char > data;
       int checksum;
     };
@@ -131,7 +131,7 @@ namespace toppers
     virtual ~s_record() {}
 
     void load( std::istream& istr );
-    int operator[]( size_type address ) const;
+    int operator[]( symbol_addr_type address ) const;
     boost::uintmax_t get_value( std::size_t base, std::size_t size, bool little_endian ) const;
     unsigned long lower_bound() const;
     unsigned long upper_bound() const;

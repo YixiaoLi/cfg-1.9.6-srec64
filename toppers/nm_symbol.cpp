@@ -58,7 +58,7 @@ namespace toppers
       std::getline( istr, buf );
       std::istringstream isstr( buf );
 
-      unsigned long address = 0;
+      symbol_addr_type address = 0;
       char type;
       std::string symbol;
       if ( !buf.empty() && !std::isspace( static_cast< unsigned char >( buf[0] ) ) )

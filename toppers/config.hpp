@@ -43,6 +43,9 @@
 #ifndef	TOPPERS_CONFIG_HPP_
 #define	TOPPERS_CONFIG_HPP_
 
+#include <stdint.h>
+typedef uint64_t symbol_addr_type;
+
 #ifdef _MSC_VER
 
 # define for			if(0);else for

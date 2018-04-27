@@ -67,7 +67,7 @@ namespace toppers
       record rec = read_record( buf );
 
       // あまり厳密には処理しない
-      if ( '1' <= rec.type && rec.type <= '3' )
+      if ( '1' <= rec.type && rec.type <= '4' )
       {
         bool done = false;
         typedef std::vector< value_type >::iterator iterator;
@@ -95,7 +95,7 @@ namespace toppers
    *  \param  address   アドレス指定
    *  \return address で指定したアドレスのバイトデータを返す
    */
-  int s_record::operator[]( size_type address ) const
+  int s_record::operator[]( symbol_addr_type address ) const
   {
     typedef std::vector< value_type >::const_iterator const_iterator;
     if ( cache_ != data_.end() )
@@ -208,6 +208,9 @@ namespace toppers
     case '3':
     case '7':
       address_length = 8;
+      break;
+    case '4': // S4 for 64-bit address field
+      address_length = 16;
       break;
     default:
       if ( !std::isdigit( static_cast< unsigned char >( ch ) ) )
